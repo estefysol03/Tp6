@@ -11,7 +11,14 @@ import java.util.Set;
  * @author RAFAEL
  */
 public class Directorio {
-    private HashMap<String,Cliente> registro=new HashMap<String,Cliente>();
+    
+    public static HashMap<String,Cliente> registro=new HashMap<String,Cliente>();
+
+    public static HashMap<String, Cliente> getRegistro() {
+        return registro;
+    }
+    
+    
     
     public Cliente buscarCliente(String numTelefono){
         for (Map.Entry<String, Cliente> entry : registro.entrySet()) {

@@ -1,5 +1,9 @@
 package igu;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author RAFAEL
@@ -22,39 +26,75 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        escritorio = new javax.swing.JDesktopPane();
-        nCliente = new javax.swing.JButton();
+        ImageIcon icon = new ImageIcon(getClass().getResource("/img/team.png"));
+        Image image = icon.getImage();
+        escritorio = new javax.swing.JDesktopPane(){
+            public void paintComponent(Graphics g){
+                g.drawImage(image,0,0,getWidth(),getHeight(),this);
+            }
+
+        };
+        jMenuBar1 = new javax.swing.JMenuBar();
+        api = new javax.swing.JMenu();
+        aCliente = new javax.swing.JMenuItem();
+        bCliente = new javax.swing.JMenuItem();
+        dCliente = new javax.swing.JMenuItem();
+        salir = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setForeground(java.awt.Color.orange);
 
         escritorio.setBackground(new java.awt.Color(204, 204, 255));
-
-        nCliente.setText("NUEVO CLIENTE");
-        nCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nClienteActionPerformed(evt);
-            }
-        });
-
-        escritorio.setLayer(nCliente, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        escritorio.setRequestFocusEnabled(false);
 
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(escritorioLayout.createSequentialGroup()
-                .addGap(117, 117, 117)
-                .addComponent(nCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(135, Short.MAX_VALUE))
+            .addGap(0, 463, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(escritorioLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(nCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(360, Short.MAX_VALUE))
+            .addGap(0, 403, Short.MAX_VALUE)
         );
+
+        api.setText("Aplicaciones");
+
+        aCliente.setText("Agregar Cliente");
+        aCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aClienteActionPerformed(evt);
+            }
+        });
+        api.add(aCliente);
+
+        bCliente.setText("Buscar Cliente");
+        bCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bClienteActionPerformed(evt);
+            }
+        });
+        api.add(bCliente);
+
+        dCliente.setText("Borrar Cliente");
+        api.add(dCliente);
+
+        jMenuBar1.add(api);
+
+        salir.setText("Salir");
+
+        jMenuItem1.setText("Salir del sistema");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        salir.add(jMenuItem1);
+
+        jMenuBar1.add(salir);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -64,30 +104,53 @@ public class Menu extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(escritorio))
+            .addComponent(escritorio, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    
-    
-    private void nClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nClienteActionPerformed
+
+    public static void main(String args[]) {
+        Menu m1 = new Menu();
+        m1.setVisible(true);
+        m1.setLocationRelativeTo(null);
+    }
+
+    private void aClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aClienteActionPerformed
         // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
         AgregarCliente c = new AgregarCliente();
         escritorio.add(c);
-        c.setVisible(true);
-    }//GEN-LAST:event_nClienteActionPerformed
+        escritorio.moveToFront(c);
+    }//GEN-LAST:event_aClienteActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void bClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bClienteActionPerformed
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        BuscarCliente c1 = new BuscarCliente();
+        escritorio.add(c1);
+        escritorio.moveToFront(c1);
+    }//GEN-LAST:event_bClienteActionPerformed
 
     /**
      * @param args the command line arguments
      */
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem aCliente;
+    private javax.swing.JMenu api;
+    private javax.swing.JMenuItem bCliente;
+    private javax.swing.JMenuItem dCliente;
     private javax.swing.JDesktopPane escritorio;
-    private javax.swing.JButton nCliente;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenu salir;
     // End of variables declaration//GEN-END:variables
 }
