@@ -1,5 +1,6 @@
 package igu;
 
+import directorio.Directorio;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -10,6 +11,7 @@ import javax.swing.ImageIcon;
  */
 public class Menu extends javax.swing.JFrame {
 
+    public static Directorio dir = new Directorio();
     /**
      * Creates new form Menu
      */
@@ -78,6 +80,11 @@ public class Menu extends javax.swing.JFrame {
         api.add(bCliente);
 
         dCliente.setText("Borrar Cliente");
+        dCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dClienteActionPerformed(evt);
+            }
+        });
         api.add(dCliente);
 
         jMenuBar1.add(api);
@@ -138,6 +145,15 @@ public class Menu extends javax.swing.JFrame {
         escritorio.add(c1);
         escritorio.moveToFront(c1);
     }//GEN-LAST:event_bClienteActionPerformed
+
+    private void dClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dClienteActionPerformed
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        BorrarCliente c1 = new BorrarCliente();
+        escritorio.add(c1);
+        escritorio.moveToFront(c1);
+    }//GEN-LAST:event_dClienteActionPerformed
 
     /**
      * @param args the command line arguments

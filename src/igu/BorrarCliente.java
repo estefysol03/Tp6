@@ -7,12 +7,13 @@ import javax.swing.JOptionPane;
  *
  * @author RAFAEL
  */
-public class BuscarCliente extends javax.swing.JInternalFrame {
+public class BorrarCliente extends javax.swing.JInternalFrame {
 
+    //Directorio d = new Directorio();
     /**
      * Creates new form NuevoCliente
      */
-    public BuscarCliente() {
+    public BorrarCliente() {
         initComponents();
     }
 
@@ -40,7 +41,6 @@ public class BuscarCliente extends javax.swing.JInternalFrame {
         txtTel = new javax.swing.JTextField();
         sButton = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        sButton1 = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 153, 255));
@@ -135,16 +135,6 @@ public class BuscarCliente extends javax.swing.JInternalFrame {
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/lupa.png"))); // NOI18N
         jLabel8.setPreferredSize(new java.awt.Dimension(30, 30));
 
-        sButton1.setBackground(new java.awt.Color(204, 204, 255));
-        sButton1.setForeground(new java.awt.Color(51, 51, 51));
-        sButton1.setText("Limpiar");
-        sButton1.setContentAreaFilled(false);
-        sButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -160,21 +150,21 @@ public class BuscarCliente extends javax.swing.JInternalFrame {
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGap(111, 111, 111)
-                                .addComponent(sButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGap(42, 42, 42)
                                 .addComponent(sButton, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_ciudad, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_dni, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txtTel, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txt_ciudad, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txt_dni, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(txtTel, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(69, 69, 69)))
                 .addContainerGap())
         );
@@ -209,11 +199,9 @@ public class BuscarCliente extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_dni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(sButton)
-                    .addComponent(sButton1))
-                .addGap(15, 15, 15))
+                .addGap(52, 52, 52)
+                .addComponent(sButton)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -234,7 +222,7 @@ public class BuscarCliente extends javax.swing.JInternalFrame {
 
     private void txtTelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelActionPerformed
         String telefono = txtTel.getText();
-        Cliente c = Menu.dir.buscarCliente(telefono);
+        Cliente c = Menu.dir.borrarCliente(telefono);
         try {
             if (c == null) {
                 JOptionPane.showMessageDialog(this, "Cliente no encontrado");
@@ -243,29 +231,32 @@ public class BuscarCliente extends javax.swing.JInternalFrame {
                 txt_apellido.setText(c.getApellido());
                 txt_nombre.setText(c.getNombre());
                 txt_ciudad.setText(c.getCiudad());
+                
+                JOptionPane.showMessageDialog(this, "Cliente borrado del directorio");
+                
+                limpiar();
+                txtTel.requestFocus();
             }
         } catch (Exception e) {
-            
+
             JOptionPane.showMessageDialog(this, "Revisar datos ingresados");
         }
-        
+
 
     }//GEN-LAST:event_txtTelActionPerformed
 
-    private void sButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sButtonActionPerformed
-        dispose();
-
-    }//GEN-LAST:event_sButtonActionPerformed
-
-    private void sButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sButton1ActionPerformed
-        // TODO add your handling code here:
+    private void limpiar() {
         txt_dni.setText("");
         txt_apellido.setText("");
         txt_nombre.setText("");
         txt_ciudad.setText("");
         txtTel.setText("");
-        
-    }//GEN-LAST:event_sButton1ActionPerformed
+    }
+
+    private void sButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sButtonActionPerformed
+        dispose();
+
+    }//GEN-LAST:event_sButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -279,7 +270,6 @@ public class BuscarCliente extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton sButton;
-    private javax.swing.JButton sButton1;
     private javax.swing.JTextField txtTel;
     private javax.swing.JTextField txt_apellido;
     private javax.swing.JTextField txt_ciudad;

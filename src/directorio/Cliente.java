@@ -11,22 +11,15 @@ public class Cliente {
     private String ciudad;
     private String direccion;
 
-   public Cliente(int dni, String nombre, String apellido, String ciudad) {
-        this.dni = dni;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.ciudad = ciudad;
-      
-   }
-    
-
-    public Cliente(int dni, String nombre, String apellido, String ciudad, String direccion) {
+   public Cliente(int dni, String nombre, String apellido, String ciudad, String direccion) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
         this.ciudad = ciudad;
         this.direccion = direccion;
-    }
+      
+   }
+    
 
     public int getDni() {
         return dni;
